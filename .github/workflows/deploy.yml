@@ -33,3 +33,4 @@ jobs:
           folder: dist/galeria-de-fotos
           branch: gh-pages
           clean: true
+          token: ${{ secrets.DEPLOY_TOKEN }}  # ← AGREGAR ESTA LÍNEA
