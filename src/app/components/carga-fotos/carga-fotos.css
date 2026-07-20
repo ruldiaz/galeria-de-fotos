@@ -1,0 +1,139 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1100;
+}
+
+.modal {
+  width: min(620px, 100%);
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 48px rgba(2, 6, 23, 0.3);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.btn-cerrar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: none;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.formulario {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.campo {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.campo label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.ayuda {
+  color: #64748b;
+}
+
+.error {
+  color: #b91c1c;
+  font-size: 0.85rem;
+}
+
+.preview {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 0.7rem;
+}
+
+.preview p {
+  margin: 0 0 0.5rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}

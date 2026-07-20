@@ -1,0 +1,45 @@
+<div class="galeria">
+    <!-- Botón para cargar fotos -->
+     <div class="galeria-header">
+        <button class="btn btn-primary" (click)="abrirModal()">
+            Cargar Nueva Foto
+        </button>
+        <span class="contador">{{ fotos.length }} fotos en la galería</span>
+     </div>
+
+     <!-- Mensaje cuando no hay fotos usando *ngIf -->
+     <div class="estado-vacio" *ngIf="fotos.length === 0">
+        <p>No hay fotos disponibles</p>
+        <p>Haz clic en "Cargar Nueva Foto" para agregar imágenes</p>
+     </div>
+
+     <!-- Galería de fotos usando *ngFor -->
+     <div class="foto-grid" *ngIf="fotos.length > 0">
+        <div class="foto-card" *ngFor="let foto of fotos" (click)="seleccionarFoto(foto)">
+            <img class="foto-card-img" [src]="foto.url" [alt]="foto.titulo" loading="lazy">
+            <div class="foto-card-body">
+                <h3>{{ foto.titulo }}</h3>
+                <p class="categoria">{{ foto.categoria | uppercase }}</p>
+                <div class="meta">
+                    <span>{{ foto.likes }} likes</span>
+                    <span>{{ foto.fecha }}</span>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <!-- Componente de detalle de foto -->
+     <app-foto-detalle
+        *ngIf="mostrarDetalle"
+        [foto]="fotoSeleccionada"
+        (cerrar)="cerrarDetalle()"
+        (eliminar)="eliminarFoto($event)">
+     </app-foto-detalle>
+
+     <!-- Componente de carga de fotos -->
+     <app-carga-fotos
+     *ngIf="mostrarModal"
+     (cerrar)="cerrarModal()"
+     (agregarFoto)="agregarFoto($event)">
+     </app-carga-fotos>
+</div>

@@ -1,0 +1,77 @@
+<div class="overlay" (click)="cerrarDetalle()">
+    <div class="detalle-modal" (click)="$event.stopPropagation()">
+        <button class="btn-cerrar" (click)="cerrarDetalle()">x</button>
+
+        <div class="detalle-contenido" *ngIf="foto">
+            <div class="imagen-wrapper">
+                <img class="imagen-principal" [src]="foto.url" [alt]="foto.titulo">
+            </div>
+
+            <div class="detalle-info">
+                <h2>{{ foto.titulo }}</h2>
+                <p class="descripcion">{{ foto.descripcion }}</p>
+
+                <!-- Usamos *ngSwitch para mostrar diferente información -->
+                <div class="categoria-detalle">
+                    <div [ngSwitch]="foto.categoria">
+                        <div *ngSwitchCase="'paisaje'">
+                            <div class="bloque-categoria">
+                                <h4>Paisaje Natural</h4>
+                                <p>Una vista impresionante de la naturaleza en todo su esplendor</p>
+                                <span class="badge">Atardecer</span>
+                            </div>
+                        </div>
+
+                        <div *ngSwitchCase="'naturaleza'">
+                            <div class="bloque-categoria">
+                                <h4>Naturaleza</h4>
+                                <p>La belleza y serenidad del mundo natural</p>
+                                <span class="badge">Vida</span>
+                            </div>
+                        </div>
+
+                        <div *ngSwitchCase="'urbano'">
+                            <div class="bloque-categoria">
+                                <h4>Fotografía Urbana</h4>
+                                <p>La energía y el ritmo de la ciudad capturados</p>
+                                <span class="badge">Nocturno</span>
+                            </div>
+                        </div>
+
+                        <div *ngSwitchCase="'flora'">
+                            <div class="bloque-categoria">
+                                <h4>Flora y Vegetación</h4>
+                                <p>La belleza efímera de las flores y plantas</p>
+                                <span class="badge">Primavera</span>
+                            </div>
+                        </div>
+
+                        <div *ngSwitchDefault>
+                            <div class="bloque-categoria">
+                                <h4>Categoría General</h4>
+                                <p>Una imagen que captura un momento especial</p>
+                                <span class="badge">Especial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="datos-extra">
+                    <div class="dato">
+                        <span>{{ foto.fecha }}</span>
+                    </div>
+                    <div class="dato">
+                        <span>{{ foto.likes }} likes</span>
+                    </div>
+                    <div class="dato">
+                        <span>{{ foto.categoria | uppercase }}</span>
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    <button class="btn btn-danger" (click)="eliminarFoto()">Eliminar foto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.detalle-modal {
+  width: min(920px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 48px rgba(2, 6, 23, 0.35);
+  position: relative;
+  padding: 1rem;
+}
+
+.btn-cerrar {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  border: none;
+  background: #e2e8f0;
+  color: #0f172a;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.detalle-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.imagen-wrapper {
+  background: #f8fafc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.imagen-principal {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.detalle-info h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.descripcion {
+  color: #334155;
+  margin: 0.6rem 0 1rem;
+}
+
+.categoria-detalle {
+  margin-bottom: 1rem;
+}
+
+.bloque-categoria {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+
+.bloque-categoria h4 {
+  margin: 0 0 0.35rem;
+  color: #1e3a8a;
+}
+
+.bloque-categoria p {
+  margin: 0 0 0.55rem;
+  color: #334155;
+}
+
+.badge {
+  display: inline-block;
+  background: #1d4ed8;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.datos-extra {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.dato {
+  background: #f1f5f9;
+  color: #334155;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .detalle-contenido {
+    grid-template-columns: 1fr;
+  }
+}

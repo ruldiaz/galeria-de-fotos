@@ -1,0 +1,82 @@
+<div class="overlay" (click)="cerrarModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+            <h2>Cargar Nueva Foto</h2>
+            <button class="btn-cerrar" (click)="cerrarModal()">x</button>
+        </div>
+
+        <form class="formulario" (ngSubmit)="guardarFoto()" #fotoForm="ngForm">
+            <div class="campo">
+                <label for="titulo">
+                    Título <span>*</span>
+                </label>
+                <input 
+                type="text"
+                id="titulo"
+                [(ngModel)]="nuevaFoto.titulo"
+                name="titulo"
+                required
+                minlength="3"
+                placeholder="Ingresa el título de la foto">
+                <div class="error" *ngIf="fotoForm.submitted && !nuevaFoto.titulo">
+                    El título es obligatorio
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="descripcion">
+                    Descripción <span>*</span>
+                </label>
+                <textarea 
+                    name="descripcion" 
+                    id="descripcion"
+                    [(ngModel)]="nuevaFoto.descripcion"
+                    required
+                    minlength="5"
+                    rows="4"
+                    placeholder="Describe tu foto en detalle"></textarea>
+                    <div class="error" *ngIf="fotoForm.submitted && !nuevaFoto.descripcion">
+                        La descripción es obligatoria
+                    </div>
+            </div>
+
+            <div class="campo">
+                <label for="url">URL de la imagen</label>
+                <input 
+                    type="text"
+                    id="url"
+                    [(ngModel)]="nuevaFoto.url"
+                    name="url"
+                    placeholder="https://ejemplo.com/imagen.jpg">
+                    <small class="ayuda">Deja en blanco para usar una imagen aleatoria</small>
+            </div>
+
+            <div class="campo">
+                <label for="categoria">Categoría</label>
+                <select 
+                    name="categoria" 
+                    id="categoria"
+                    [(ngModel)]="nuevaFoto.categoria">
+                    <option value="">Selecciona una categoría</option>
+                    <option *ngFor="let cat of categorias" [value]="cat.valor">
+                        {{ cat.nombre }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="preview" *ngIf="nuevaFoto.url">
+                <p>Vista previa:</p>
+                <img [src]="nuevaFoto.url" alt="Vista previa" (error)="nuevaFoto.url = ''">
+            </div>
+
+            <div class="acciones">
+                <button class="btn btn-secondary" type="button" (click)="cerrarModal()">
+                    Cancelar
+                </button>
+                <button class="btn btn-primary" type="submit" [disabled]="!fotoForm.valid">
+                    Guardar Foto
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
